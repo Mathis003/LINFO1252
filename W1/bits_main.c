@@ -29,5 +29,15 @@ int main(int argc, char **argv) {
 
     printf("\n");
 
+    display_function("nbits()");
+    printf("Input :  %s\nOutput : %d\n", get_str_bin(nbers1, 32), nbits(nbers1));
+    printf("Input :  %s\nOutput : %d\n", get_str_bin(nbers2, 32), nbits(nbers2));
+
+    printf("\n");
+    
+    display_function("reset_highestorder_strong_bit()");
+    printf("Input :  %s\nOutput : %s\n", get_str_bin(nbers1, 32), get_str_bin(reset_highestorder_strong_bit(nbers1), 32));
+    printf("Input :  %s\nOutput : %s\n", get_str_bin(nbers2, 32), get_str_bin(reset_highestorder_strong_bit(nbers2), 32));
+
     return 0;
 }
