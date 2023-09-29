@@ -1,4 +1,33 @@
 #include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+/*
+Helper function to display binary number
+*/
+
+char *get_str_bin(const unsigned int n, const short nbBits )
+{
+    unsigned bit = 0 ;
+    unsigned mask = 1 ;
+    char *buffer = malloc((nbBits + 3) * sizeof(char));
+    if (buffer == NULL)
+    {
+        printf("Error : malloc()\n");
+        return NULL;
+    }
+    buffer[0] = '0';
+    buffer[1] = 'b';
+
+    for (int i = 2 ; i < nbBits + 2 ; i++)
+    {
+        bit = (n & mask) >> (i - 2);
+        buffer[nbBits + 3 - i] = (char) ('0' + bit);
+        mask <<= 1 ;
+    }
+    buffer[nbBits + 2] = '\0';
+    return buffer;
+}
 
 /*
 Write the body of a function get_3_leftmost_bits that returns the 3 high order bits of x.
@@ -7,13 +36,9 @@ For instance, if x=0b11011001..., the function should return a uint8_t containin
 
 If x=0b01100001..., the function should return a uint8_t containing 0b00000011.
 */
-
-uint32_t get_3_leftmost_bits(uint32_t x) {
-    /*
-    On décale vers la droite les bits de 29.
-    29 car x est un nombre encodé sur 32 bits et il faut garder les 3 bits de poids fort.
-    */
-    return x >> (32 - 3);
+uint8_t get_3_leftmost_bits(uint32_t x)
+{
+    return x >> 29;
 }
 
 
@@ -24,8 +49,8 @@ For instance, if x=0b...11011001, the function should return a uint8_t containin
 
 If x=0b...11011101, your function should return 0b00001101
 */
-
-uint8_t get_4_rightmost_bits(uint32_t x) {
+uint8_t get_4_rightmost_bits(uint32_t x)
+{
     // 0xF = 15 = 0b00...001111
     // On créé un masque 0xF pour récupérer uniquement les 4 bits de poids faible.
     return x & 0xF;
@@ -39,12 +64,9 @@ Here is a simple example with bytes. Consider byte 0b01101011. If n is set to 1,
 
 If n is set to 4, then cycle_bits would return 0b10110110.
 */
-
-uint32_t cycle_bits(uint32_t x, uint8_t n) {
-    uint32_t tmp_x = x;
-    uint32_t left_part = x << n;
-    uint32_t right_part = tmp_x >> (32 - n);
-    return left_part | right_part; 
+uint32_t cycle_bits(uint32_t x, uint8_t n)
+{
+    return (x << n) | (x >> (32 - n)); 
 }
 
 
@@ -58,17 +80,19 @@ nbits(0b00000111) == 3;
 nbits(0b00001010) == 2;
 */
 
-uint8_t nbits(uint32_t n) {
+uint8_t nbits(uint32_t n)
+{
     uint8_t count = 0;
-    uint32_t bit_indexed = 1;
+    uint32_t mask = 1;
 
-    for (int i = 0; i < 32; i++) {
-        if ((n & bit_indexed) != 0) {
+    for (int i = 0; i < 32; i++)
+    {
+        if ((n & mask) != 0)
+        {
             count++;
         }
-        bit_indexed <<= 1;
+        mask <<= 1;
     }
-
     return count;
 }
 
@@ -79,16 +103,17 @@ For example, with bytes, reset_highestorder_bit(0b000111010101010) would return 
 
 To write this function, you first need to determine the position of the highest order bit that is set to 1 and then reset its value.
 */
+uint32_t reset_highestorder_strong_bit(uint32_t x)
+{
+    uint32_t mask = 1 << 31;
 
-uint32_t reset_highestorder_strong_bit(uint32_t x) {
-    // Pouvait faire une boucle de droite à gauche (plus efficace pour les petits nombres)
-    // Ma fonction est plus efficace pour de très grand nombre.
-    uint32_t bit_indexed = 1 << 31;
-    for (int i = 31; i >= 0; i--) {
-        if ((x & bit_indexed) != 0) {
-            return x - bit_indexed;
+    for (int i = 31; i >= 0; i--)
+    {
+        if ((x & mask) != 0)
+        {
+            return x - mask;
         }
-        bit_indexed >>= 1;
+        mask >>= 1;
     }
     return x;
 }
