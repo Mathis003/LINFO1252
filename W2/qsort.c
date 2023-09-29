@@ -21,44 +21,67 @@ Si les arguments fournis ne sont pas corrects, votre sort doit afficher un messa
 #include <stdlib.h>
 #include <string.h>
 
-
-void sort(void *base, size_t nel, size_t width, int (*compar)(const void *, const void *))
+void swap(void *elem1, void *elem2, size_t size)
 {
-    if (base == NULL || nel <= 1 || width == 0 || compar == NULL) {return;}
+    char *temp = malloc(size);
+    if (temp == NULL) {
+        fprintf(stderr, "Erreur d'allocation mémoire temporaire\n");
+        return;
+    }
+    memcpy(temp, elem1, size);
+    memcpy(elem1, elem2, size);
+    memcpy(elem2, temp, size);
+    free(temp);
+}
 
-    char **ptr_array = (char **) base;
+void sort(void *base, size_t nel, size_t width, int (*compar) (const void *, const void *))
+{
+    if (base == NULL || nel <= 1 || width == 0 || compar == NULL) return;
 
-    // Brute force
+    char *char_base = (char *) base;
+
     for (size_t i = 0; i < nel - 1; i++)
     {
         for (size_t j = 0; j < nel - i - 1; j++)
         {
-            if (compar(ptr_array[j], ptr_array[j + 1]) > 0)
-            {
-                char *temp = ptr_array[j];
-                ptr_array[j] = ptr_array[j + 1];
-                ptr_array[j + 1] = temp;
-            }
+            char *elem1 = char_base + j * width;
+            char *elem2 = char_base + (j + 1) * width;
+
+            if (compar(elem1, elem2) > 0) swap(elem1, elem2, width);
         }
     }
 }
 
-
-int compare(const void *element1, const void *element2)
+int compare_int(const void *element1, const void *element2)
 {
-    const char *str1 = (const char *) element1;
-    const char *str2 = (const char *) element2;
+    const int *first = (const int *) element1;
+    const int *second = (const int *) element2;
+
+    if (*first != *second)
+    {
+        if (*first < *second)
+        {
+            return -1;
+        }
+        return 1;
+    }
+}
+
+int compare_str(const void *element1, const void *element2)
+{
+    const char *str1 = *(const char **) element1;
+    const char *str2 = *(const char **) element2;
 
     int i = 0;
     while ((*(str1 + i) != '\0') && (*(str2 + i) != '\0'))
     {
         char char1_lowercase = *(str1 + i);
-        if ('A' <= char1_lowercase && char1_lowercase <= 'Z') {char1_lowercase += ('a' - 'A');}
+        if ('A' <= char1_lowercase && char1_lowercase <= 'Z') char1_lowercase += ('a' - 'A');
 
         char char2_lowercase = *(str2 + i);
-        if ('A' <= char2_lowercase && char2_lowercase <= 'Z') {char2_lowercase += ('a' - 'A');}
+        if ('A' <= char2_lowercase && char2_lowercase <= 'Z') char2_lowercase += ('a' - 'A');
 
-        if (char1_lowercase != char2_lowercase) {return (char1_lowercase - char2_lowercase);}
+        if (char1_lowercase != char2_lowercase) return (char1_lowercase - char2_lowercase);
         i++;
     }
 
@@ -70,32 +93,48 @@ int compare(const void *element1, const void *element2)
     return 1;
 }
 
-void display_array(char *array[], int size)
+void display_array_str(char *array[], int size)
 {
     printf("[");
-    for (int i = 0; i < size - 1; i++) {printf("%s, ", array[i]);}
+    for (int i = 0; i < size - 1; i++) {
+        printf("%s, ", array[i]);
+    }
     printf("%s]\n", array[size - 1]);
+}
+
+void display_array_int(int *array, int size)
+{
+    printf("[");
+    for (int i = 0; i < size - 1; i++) {
+        printf("%d, ", array[i]);
+    }
+    printf("%d]\n", array[size - 1]);
 }
 
 int main(int argc, char **argv)
 {
-    char **array_name = malloc(7 * sizeof(char *));
-    array_name[0] = "HOmE";
-    array_name[1] = "SkY";
-    array_name[2] = "ShaDOW";
-    array_name[3] = "pacK";
-    array_name[4] = "Book";
-    array_name[5] = "gIrl";
-    array_name[6] = "boy";
+    int array_integers[] = {2, 9, 1, 0, 100, 982, 90};
+    int size_integers = 7;
 
-    display_array(array_name, 7);
+    display_array_int(array_integers, size_integers);
     printf("\n");
 
-    sort(array_name, 7, sizeof(char *), &compare);
+    sort(array_integers, size_integers, sizeof(int), &compare_int);
 
-    display_array(array_name, 7);
+    display_array_int(array_integers, size_integers);
     printf("\n");
 
-    free(array_name);
+
+    char *array_name[] = {"HOmE", "SkY", "ShaDOW", "pacK", "Book", "gIrl", "boy"};
+    int size_names = 7;
+
+    display_array_str(array_name, size_names);
+    printf("\n");
+
+    sort(array_name, size_names, sizeof(char *), &compare_str);
+
+    display_array_str(array_name, size_names);
+    printf("\n");
+
     return 0;
 }
