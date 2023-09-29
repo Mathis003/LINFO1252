@@ -87,10 +87,7 @@ uint8_t nbits(uint32_t n)
 
     for (int i = 0; i < 32; i++)
     {
-        if ((n & mask) != 0)
-        {
-            count++;
-        }
+        if ((n & mask) != 0) {count++;}
         mask <<= 1;
     }
     return count;
@@ -109,10 +106,7 @@ uint32_t reset_highestorder_strong_bit(uint32_t x)
 
     for (int i = 31; i >= 0; i--)
     {
-        if ((x & mask) != 0)
-        {
-            return x - mask;
-        }
+        if ((x & mask) != 0) {return x - mask;}
         mask >>= 1;
     }
     return x;
