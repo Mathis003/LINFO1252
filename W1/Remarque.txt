@@ -1,0 +1,6 @@
+Pour tous les exercices, vous devez être dans le dossier de l'exercice pour pouvoir l'exécuter sans erreur (sauf script_final).
+
+Pour l'exécuter, il suffit de taper : bash ./"name_exercice".sh
+
+Pour le script final, vous pouvez le run de n'importe quel répértoire mais vous devez lui donner en paramètre
+le répértoire où se trouve votre fichier source.

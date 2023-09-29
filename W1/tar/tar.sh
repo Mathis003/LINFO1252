@@ -1,0 +1,1 @@
+tar -cvzf output.tar.gz folder/file folder/folder1 folder/folder2
