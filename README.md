@@ -17,7 +17,7 @@ This repository is a collection of my solutions to the programming exercises fro
 
 ## Course Information
 
-- **Course Name**: LINFO1252 - (Computer System)
+- **Course Name**: LINFO1252 - Computer System
 - **Institution**: UCLouvain (Université catholique de Louvain)
 - **Degree**: Bachelor's Degree in Civil Engineering, Computer Science Option
 
