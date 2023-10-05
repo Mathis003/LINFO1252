@@ -17,7 +17,7 @@ This repository is a collection of my solutions to the programming exercises fro
 
 ## Course Information
 
-- **Course Name**: LINFO1252 - [Course Name]
+- **Course Name**: LINFO1252 - (Computer System)
 - **Institution**: UCLouvain (Université catholique de Louvain)
 - **Degree**: Bachelor's Degree in Civil Engineering, Computer Science Option
 
@@ -30,12 +30,6 @@ git clone https://github.com/your-username/LINFO1252-solutions.git
 ```
 
 Make sure you have a C compiler (e.g., GCC) installed to compile and run the exercise solutions.
-
-## Exercises
-
-The exercises are organized in folders, each representing a specific topic or assignment.
-You can navigate through the folders to find the solutions to individual exercises.
-Each exercise include its own guideline with additional instructions and explanations.
 
 ## Exercises
 
