@@ -1,3 +1,14 @@
+/*
+A variable declared inside a function with the keyword static implies that the value of this variable will be kept across the different calls to this function.
+
+For example, the first call to your function should return 1. The next call 2, then 4, ..., 4096, 1, ...
+
+Static counter
+Write the body of the function stexp which returns at its *n*th call the value 2^(n-1). Once it has returned the value 4096, the next return should go back to 1.
+
+You have to use a static variable.
+*/
+
 #include <stdio.h>
 
 unsigned int stexp()
