@@ -1,6 +1,6 @@
 # LINFO1252 - Solutions to Course Exercises
 
-![EPL Logo](epl_logo.jpg)
+![EPL Logo](assets/epl_logo.jpg)
 
 This repository contains my solutions to the exercises from the LINFO1252 course (Bachelor's Degree in Civil Engineering, Computer Science Option) at UCLouvain.
 
