@@ -111,8 +111,16 @@ void display_array_int(int *array, int size)
     printf("%d]\n", array[size - 1]);
 }
 
+
 int main(int argc, char **argv)
 {
+
+    const char *str1 = "name";
+    const char *str2 = "firstname";
+    int result = compare_str(str1, str2);
+    
+    printf("%d\n", result);
+    
     int array_integers[] = {2, 9, 1, 0, 100, 982, 90};
     int size_integers = 7;
 
