@@ -19,7 +19,10 @@ print("Moyennes par ligne:", means)
 print("Écarts types par ligne:", stds)
 
 plt.figure()
-plt.plot(nbThreads, medians, marker='o', linestyle='-')
+plt.plot(nbThreads, means, marker='o', linestyle='-', label='Mean')
+plt.plot(nbThreads, medians, marker='o', linestyle='-', label='Median')
+plt.errorbar(nbThreads, medians, yerr=stds, fmt='o', label='Std Dev')
+
 plt.title('Médiane en fonction du nombre de threads')
 plt.xlabel('Nombre de threads')
 plt.ylabel('Médiane')
