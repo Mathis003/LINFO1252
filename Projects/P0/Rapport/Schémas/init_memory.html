@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .table {
+            display: table;
+        }
+
+        .row {
+            display: flex;
+            margin-bottom: 30px; /* Ajoute un espace entre les rangées */
+        }
+
+        .cell {
+            display: flex;
+            justify-content: center; /* Centre le contenu horizontalement */
+            align-items: center; /* Centre le contenu verticalement */
+            width: 100px; /* Largeur des cases */
+            height: 100px; /* Hauteur des cases */
+            border: 0.5px solid #000;
+            text-align: center;
+            position: relative;
+        }
+
+        .label {
+            position: absolute;
+            bottom: -20px; /* Place le numéro hexadécimal en dessous de la case */
+            left: 0;
+            right: 0;
+            color: black; /* Couleur du texte blanc pour contraste */
+        }
+
+        .metadatas_color {
+            background-color: rgb(46, 199, 255); /* Couleur de fond bleue */
+            color: rgb(0, 0, 0); /* Couleur du texte blanc pour contraste */
+        }
+
+        .nextfit_color {
+            background-color: rgb(255, 179, 0); /* Couleur de fond bleue */
+            color: rgb(0, 0, 0); /* Couleur du texte blanc pour contraste */
+        }
+
+        .free_color {
+            background-color: #FFC0CB; /* Couleur de fond bleue */
+            color: white; /* Couleur du texte blanc pour contraste */
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            right: -40px; /* Ajustez la distance entre la flèche et la case */
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent; /* Largeur de la flèche */
+            border-right: 20px solid transparent; /* Largeur de la flèche */
+            border-top: 20px solid red; /* Couleur de la flèche */
+        }
+
+        .arrow-label {
+            position: absolute;
+            top: 50%;
+            right: -60px; /* Ajustez la distance entre l'étiquette et la case */
+            transform: translateY(-50%);
+            color: red; /* Couleur du texte de l'étiquette */
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="table">
+        <!-- Première rangée -->
+        <div class="row">
+            <div class="cell nextfit_color">
+                <div class="label">0x0</div>
+                0b00000001
+            </div>
+            <div class="cell nextfit_color">
+                0b00000000
+                <div class="label">0x1</div>
+            </div>
+            <div class="cell metadatas_color">
+                0b11111100
+                <div class="label">0x2</div>
+                <div class="dot_nextfit"></div>
+            </div>
+            <div class="cell metadatas_color">
+                0b11111001
+                <div class="label">0x3</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0x4</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0x5</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0x6</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0x7</div>
+            </div>
+        </div>
+
+        <!-- Deuxième rangée -->
+        <div class="row">
+            <div class="cell free_color">
+                <div class="label">0x8</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0x9</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0xA</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0xB</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0xC</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0xD</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0xE</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0xF</div>
+            </div>
+        </div>
+
+        <!-- Troisième rangée -->
+        <div class="row">
+            <div class="cell free_color">
+                <div class="label">0x10</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0x11</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0x12</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0x13</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0x14</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0x15</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0x16</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0x17</div>
+            </div>
+        </div>
+
+        <!-- Quatrième rangée -->
+        <div class="row">
+            <div class="cell free_color">
+                <div class="label">0x18</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0x19</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0x1A</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0x1B</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0x1C</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0x1D</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0x1E</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0x1F</div>
+            </div>
+        </div>
+
+        <!-- Cinquième rangée -->
+        <div class="row">
+            <div class="cell free_color">
+                <div class="label">0x20</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0x21</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0x22</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0x23</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0x24</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0x25</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0x26</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0x27</div>
+            </div>
+        </div>
+
+        <!-- Sixième rangée -->
+        <div class="row">
+            <div class="cell free_color">
+                <div class="label">0x28</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0x29</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0x2A</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0x2B</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0x2C</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0x2D</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">...</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0xF9FF</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .table {
+            display: table;
+        }
+
+        .row {
+            display: flex;
+            margin-bottom: 30px; /* Ajoute un espace entre les rangées */
+        }
+
+        .cell {
+            display: flex;
+            justify-content: center; /* Centre le contenu horizontalement */
+            align-items: center; /* Centre le contenu verticalement */
+            width: 100px; /* Largeur des cases */
+            height: 100px; /* Hauteur des cases */
+            border: 0.5px solid #000;
+            text-align: center;
+            position: relative;
+        }
+
+        .label {
+            position: absolute;
+            bottom: -20px; /* Place le numéro hexadécimal en dessous de la case */
+            left: 0;
+            right: 0;
+            color: black; /* Couleur du texte blanc pour contraste */
+        }
+
+        .metadatas_color {
+            background-color: rgb(46, 199, 255); /* Couleur de fond bleue */
+            color: rgb(0, 0, 0); /* Couleur du texte blanc pour contraste */
+        }
+
+        .nextfit_color {
+            background-color: rgb(255, 179, 0); /* Couleur de fond bleue */
+            color: rgb(0, 0, 0); /* Couleur du texte blanc pour contraste */
+        }
+
+        .free_color {
+            background-color: #FFC0CB; /* Couleur de fond bleue */
+            color: white; /* Couleur du texte blanc pour contraste */
+        }
+
+        .user_color {
+            background-color: #6aff6a; /* Couleur de fond bleue */
+            color: white; /* Couleur du texte blanc pour contraste */
+        }
+
+        .dot_ptr_malloc {
+            content: "next_fit_offset";
+            width: 40px; /* Largeur du point */
+            height: 40px; /* Hauteur du point */
+            background-color: rgb(255, 0, 0); /* Couleur du point */
+            border-radius: 100%; /* Pour créer un point rond */
+            position: absolute;
+            top: 50% - height; /* Positionne le point au milieu de la case */
+            left: 50% - width; /* Positionne le point au milieu de la case */
+            border: 1px solid black; /* Ajouter un contour noir de 2px */
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="table">
+        <!-- Première rangée -->
+        <div class="row">
+            <div class="cell nextfit_color">
+                0b00010100
+                <div class="label">0x0</div>
+            </div>
+            <div class="cell nextfit_color">
+                0b00000000
+                <div class="label">0x1</div>
+            </div>
+            <div class="cell metadatas_color">
+                0b00000011
+                <div class="label">0x2</div>
+            </div>
+            <div class="cell metadatas_color">
+                0b00000000
+                <div class="label">0x3</div>
+            </div>
+            <div class="cell user_color">
+                <div class="dot_ptr_malloc"></div>
+                <div class="label">0x4</div>
+            </div>
+            <div class="cell user_color">
+                <div class="label">0x5</div>
+            </div>
+            <div class="cell metadatas_color">
+                0b00010011
+                <div class="label">0x6</div>
+            </div>
+            <div class="cell metadatas_color">
+                0b00000000
+                <div class="label">0x7</div>
+            </div>
+        </div>
+
+        <!-- Deuxième rangée -->
+        <div class="row">
+            <div class="cell user_color">
+                <div class="dot_ptr_malloc"></div>
+                <div class="label">0x8</div>
+            </div>
+            <div class="cell user_color">
+                <div class="label">0x9</div>
+            </div>
+            <div class="cell user_color">
+                <div class="label">0xA</div>
+            </div>
+            <div class="cell user_color">
+                <div class="label">0xB</div>
+            </div>
+            <div class="cell user_color">
+                <div class="label">0xC</div>
+            </div>
+            <div class="cell user_color">
+                <div class="label">0xD</div>
+            </div>
+            <div class="cell user_color">
+                <div class="label">0xE</div>
+            </div>
+            <div class="cell user_color">
+                <div class="label">0xF</div>
+            </div>
+        </div>
+
+        <!-- Troisième rangée -->
+        <div class="row">
+            <div class="cell user_color">
+                <div class="label">0x10</div>
+            </div>
+            <div class="cell user_color">
+                <div class="label">0x11</div>
+            </div>
+            <div class="cell user_color">
+                <div class="label">0x12</div>
+            </div>
+            <div class="cell user_color">
+                <div class="label">0x13</div>
+            </div>
+            <div class="cell user_color">
+                <div class="label">0x14</div>
+            </div>
+            <div class="cell user_color">
+                <div class="label">0x15</div>
+            </div>
+            <div class="cell user_color">
+                <div class="label">0x16</div>
+            </div>
+            <div class="cell user_color">
+                <div class="label">0x17</div>
+            </div>
+        </div>
+
+        <!-- Quatrième rangée -->
+        <div class="row">
+            <div class="cell user_color">
+                <div class="label">0x18</div>
+            </div>
+            <div class="cell user_color">
+                <div class="label">0x19</div>
+            </div>
+            <div class="cell metadatas_color">
+                0b00001111
+                <div class="label">0x1A</div>
+            </div>
+            <div class="cell metadatas_color">
+                0b00000000
+                <div class="label">0x1B</div>
+            </div>
+            <div class="cell user_color">
+                <div class="dot_ptr_malloc"></div>
+                <div class="label">0x1C</div>
+            </div>
+            <div class="cell user_color">
+                <div class="label">0x1D</div>
+            </div>
+            <div class="cell user_color">
+                <div class="label">0x1E</div>
+            </div>
+            <div class="cell user_color">
+                <div class="label">0x1F</div>
+            </div>
+        </div>
+
+        <!-- Cinquième rangée -->
+        <div class="row">
+            <div class="cell user_color">
+                <div class="label">0x20</div>
+            </div>
+            <div class="cell user_color">
+                <div class="label">0x21</div>
+            </div>
+            <div class="cell user_color">
+                <div class="label">0x22</div>
+            </div>
+            <div class="cell user_color">
+                <div class="label">0x23</div>
+            </div>
+            <div class="cell user_color">
+                <div class="label">0x24</div>
+            </div>
+            <div class="cell user_color">
+                <div class="label">0x25</div>
+            </div>
+            <div class="cell user_color">
+                <div class="label">0x26</div>
+            </div>
+            <div class="cell user_color">
+                <div class="label">0x27</div>
+            </div>
+        </div>
+
+        <!-- Sixième rangée -->
+        <div class="row">
+            <div class="cell user_color">
+                <div class="label">0x28</div>
+            </div>
+            <div class="cell user_color">
+                <div class="label">0x29</div>
+            </div>
+            <div class="cell metadatas_color">
+                0b11010110
+                <div class="label">0x2A</div>
+            </div>
+            <div class="cell metadatas_color">
+                0b11111001
+                <div class="label">0x2B</div>
+            </div>
+            <div class="cell free_color">
+                <div class="dot_nextfit"></div>
+                <div class="label">0x2C</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0x2D</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">...</div>
+            </div>
+            <div class="cell free_color">
+                <div class="label">0xF9FF</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
