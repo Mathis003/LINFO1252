@@ -1,0 +1,22 @@
+La fonction suivante, écrite en assembleur, fais usage de l'appel système gettimeofday. Copiez et modifiez uniquement le code entre commentaires pour effectuer l'appel système getppid à la place de gettimeofday. Votre code doit se limiter uniquement à effectuer cet appel.
+
+direct_syscall:
+  subl $16, %esp
+
+  ;--- Début du code à modifier
+  movl $78, %eax
+  movl %esp, %ebx
+  movl $0, %ecx
+  int $0x80
+  ;--- Fin du code à modifier
+
+  ; .....
+  ; Nettoyage de la stack et return
+  addl $16, %esp
+  ret
+
+
+Solution:
+
+movl $0x40, %eax
+int $0x80
