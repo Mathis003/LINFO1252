@@ -1,0 +1,1 @@
+Voir l'implémentation reader_writer.c du Projet 1

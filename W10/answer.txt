@@ -1,0 +1,20 @@
+On va essayer de montrer un exemple pour lequel l'exclusion mutuelle n'est pas respectée.
+Si on en trouve un, alors la démonstration est finie.
+Si on n'en trouve pas, alors on essaie de montrer que c'est impossible que deux threads soient en même temps dans la section critique (via preuve par l'absurde).
+N'oublions pas que les threads peuvent être bloqué à tous moment par le scheduler.
+
+Exclusion mutuelle ?
+
+    Prenons le cas où le thread T1 passe la deuxième boucle while() et est directement bloqué par le scheduler juste avant d'exécuter la ligne "turn = mon_id;".
+    Ensuite, le thread T2 passe en mode Running et passe dans la première boucle while() (vu que la variable turn n'a pas été mise à jour par T1) et passe la deuxième boucle while() (voir l'exécution du code).
+    Ils ont donc tous les deux passé les boucle while() (seules choses qui sont capables de bloquer les threads) et donc accèdent à la section critique en même temps !
+
+    => Exclusion mutuelle non respectée !
+
+Livelock ou liveness ?
+
+    Le seul endroit où les threads peuvent être bloqué indéfiniement est la boucle while() vide.
+    Pour que les deux threads soient bloqués simultanément à cet endroit, il faudrait que flag[0] = 0 et flag[1] = 0.
+    Hors, c'est impossible car avant de rentrer dans la boucle while(), le flag du thread est mit à 1.
+
+    => Aucun Livelock ou liveness possible !
