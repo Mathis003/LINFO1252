@@ -9,7 +9,7 @@
 
 ## Description
 
-Welcome to the repository containing my solutions to the exercises from the LINFO1252 course at UCLouvain, part of the Civil Engineering program. This repository is a collection of my solutions to the programming exercises from the LINFO1252 course at UCLouvain. These exercises cover various topics in computer science and are implemented in the C programming language.
+Welcome to the repository containing my solutions to the exercises from the LINFO1252 course at UCLouvain, part of the Civil Engineering program. These exercises cover various topics in computer science and are implemented in the C programming language.
 
 ## Course Information
 
