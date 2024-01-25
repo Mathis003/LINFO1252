@@ -1,19 +1,15 @@
 # LINFO1252 - Solutions to Course Exercises
 
-![EPL Logo](assets/epl_logo.jpg)
-
-This repository contains my solutions to the exercises from the LINFO1252 course (Bachelor's Degree in Civil Engineering, Computer Science Option) at UCLouvain.
-
 ## Table of Contents
 
-- [About](#about)
+- [Description](#description)
 - [Course Information](#course-information)
-- [Getting Started](#getting-started)
-- [Exercises](#exercises)
+- [Contents](#exercises)
+- [Disclaimer](#disclaimer)
 
-## About
+## Description
 
-This repository is a collection of my solutions to the programming exercises from the LINFO1252 course at UCLouvain. These exercises cover various topics in computer science and are implemented in the C programming language.
+Welcome to the repository containing my solutions to the exercises from the LINFO1252 course at UCLouvain, part of the Civil Engineering program. This repository is a collection of my solutions to the programming exercises from the LINFO1252 course at UCLouvain. These exercises cover various topics in computer science and are implemented in the C programming language.
 
 ## Course Information
 
@@ -21,17 +17,18 @@ This repository is a collection of my solutions to the programming exercises fro
 - **Institution**: UCLouvain (Université catholique de Louvain)
 - **Degree**: Bachelor's Degree in Civil Engineering, Computer Science Option
 
-## Getting Started
-
-To get started, you can clone this repository to your local machine using the following command:
-
-```bash
-git clone https://github.com/your-username/LINFO1252-solutions.git
-```
-
-Make sure you have a C compiler (e.g., GCC) installed to compile and run the exercise solutions.
+## Contents
 
 ## Exercises
 
 The exercises are organized by week, with each week having its own folder.
 Inside each week's folder, you will find individual exercises, each containing the exercise instructions and their corresponding solutions.
+In addition to coding exercises, the repository also includes directed tutorials. These tutorials serve to deepen the understanding of crucial topics covered during the lectures and provide a comprehensive exploration of the course material.
+
+## Projects
+
+You can find the three projects implementing a `Dynamic Memory Allocation`, a `Multithreading Performance Analysis` and a `Tar Archive Utility` in the directory `Projects/`.
+
+## Disclaimer
+
+These solutions are personal interpretations and may not represent the most efficient or optimal approaches. Use them as a reference, but always strive to understand and develop your solutions.
